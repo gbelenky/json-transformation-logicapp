@@ -58,7 +58,7 @@ jobs:
       with:
         inlineScript: |
           $profile = Get-AzWebAppPublishingProfile `
-              -ResourceGroupName ${{ secrets.RG_LA }} `
+              -ResourceGroupName ${{ secrets.AZURE_RESOURCE_GROUP}} `
               -Name ${{ env.LA_NAME }}
           $profile = $profile.Replace("`r", "").Replace("`n", "")
           Write-Output "::set-output name=profile::$profile"
@@ -68,7 +68,7 @@ jobs:
       uses: Azure/functions-action@v1.3.1
       id: la
       with:
-        app-name: ${{secrets.RG_LA}}
+        app-name: ${{secrets.AZURE_RESOURCE_GROUP}}
         package: './build-art/logic.zip'
         publish-profile: ${{steps.publishprofile.outputs.profile}}
 
