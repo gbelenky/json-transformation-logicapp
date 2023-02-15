@@ -3,7 +3,8 @@ name: Logic App Infrastructure as Code Pipeline.
 on:
   workflow_dispatch:
   push:
-    branches: main
+    branches:
+      - main
     paths:
       - "solution/ARM/**"
       - ".github/workflows/IaC_deploy.yml"
