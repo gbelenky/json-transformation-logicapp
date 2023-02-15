@@ -3,8 +3,6 @@ name: Logic App Infrastructure as Code Pipeline.
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
     paths:
       - "solution/ARM/**"
       - ".github/workflows/IaC_deploy.yml"
@@ -23,9 +21,7 @@ jobs:
     - name: Azure Login
       uses: azure/login@v1
       with:
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
         enable-AzPSSession: true 
 
     # Checkout
