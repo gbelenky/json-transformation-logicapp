@@ -12,11 +12,7 @@
                         }
                     ]
                 },
-                "runAfter": {
-                    "My_Test": [
-                        "Succeeded"
-                    ]
-                },
+                "runAfter": {},
                 "description": "My first comment"
             },
             "For_each_eco_order": {
@@ -180,19 +176,6 @@
                         "Succeeded"
                     ]
                 }
-            },
-            "My_Test": {
-                "type": "InitializeVariable",
-                "inputs": {
-                    "variables": [
-                        {
-                            "name": "myTest",
-                            "type": "boolean",
-                            "value": true
-                        }
-                    ]
-                },
-                "runAfter": {}
             }
         },
         "triggers": {
